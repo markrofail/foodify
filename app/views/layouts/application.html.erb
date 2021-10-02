@@ -8,9 +8,25 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <%# Bulma stuff %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
   </head>
 
   <body>
-    <%= yield %>
+    <%= render 'shared/header' %>
+
+    <% if notice.present? %>
+      <p class="notification is-link is-light"><%= notice %></p>
+    <% end %>
+
+    <% if alert.present? %>
+      <p classaltert="notification is-danger is-light"><%= alert %></p>
+    <% end %>
+
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
