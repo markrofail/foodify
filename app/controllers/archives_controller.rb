@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ArchivesController < ApplicationController
   def index
     @entries = Entry.all.group_by(&:day)
